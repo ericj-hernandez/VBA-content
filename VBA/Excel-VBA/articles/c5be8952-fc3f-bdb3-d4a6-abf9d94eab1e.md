@@ -26,14 +26,21 @@ Setting the formula for a multiple-cell range fills all cells in the range with 
 
 ## Example
 
-The following code example sets the formula for cell A1 on Sheet1.
+The following code example sets the formula for cell A1 on Sheet1 as a sum of two cells.
 
 
 ```vb
 Worksheets("Sheet1").Range("A1").Formula = "=$A$4+$A$10"
 ```
 
+The following code example sets the formula for cell A1 on Sheet1 with nested IF-statement logic to define deciles.
 
+
+```vb
+Worksheets("Sheet1").Range("A1").Formula = "=IF($A$4>=.9,1,IF($A$4>=.8,2,IF($A$4>=.7,3,"& _
+                                             "IF($A$4>=.6,4,IF($A$4>=.5,5,IF($A$4>=.4,6,"& _
+                                             "IF($A$4>=.3,7,IF($A$4>=.2,8,IF($A$4>=.1,9,0)))))))))"
+```
 
  **Sample code provided by:** Bill Jelen,[MrExcel.com](http://www.mrexcel.com/)
 
